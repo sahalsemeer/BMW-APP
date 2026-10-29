@@ -9,18 +9,22 @@ import { StatusBar, StyleSheet, View } from 'react-native';
 import {
   SafeAreaProvider,
 } from 'react-native-safe-area-context';
-import LoginScreen from './src/features/auth/screen/LoginScreen';
+import {Provider} from 'react-redux';
+import HomeScreen from './src/features/home/screen/HomeScreen';
+import store from './src/redux/store';
 
 function App() {
   
 
   return (
-    <SafeAreaProvider>
-      <StatusBar  />
-      <View style={styles.container}>
-      <LoginScreen />
-    </View>
-    </SafeAreaProvider>
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <StatusBar />
+        <View style={styles.container}>
+          <HomeScreen />
+        </View>
+      </SafeAreaProvider>
+    </Provider>
   );
 }
 
